@@ -23,9 +23,9 @@ function RenderDish({ dish }) {
    );
 }
 export function RenderComments({ comments }) {
-   const comment = comments.map((item) => {
+   const comment = comments.map((item, index) => {
       return (
-         <div>
+         <div key={index}>
             <ul>
                <li>
                   <h5>{item.comment}</h5>
