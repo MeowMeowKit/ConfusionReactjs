@@ -210,7 +210,7 @@ class Contact extends Component {
                            type="textarea"
                            id="message"
                            name="message"
-                           rows="12"
+                           rows="8"
                            value={this.state.message}
                            onChange={this.handleInputChange}
                         ></Input>

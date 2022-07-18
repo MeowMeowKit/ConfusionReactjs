@@ -14,7 +14,7 @@ function About(props) {
       return (
          <div>
             <p>Leader {leader.name}</p>
-            <img src={leader.image} />
+            <img src={leader.image} alt="" />
          </div>
       );
    });

@@ -7,10 +7,11 @@ import {
    CardTitle,
    CardSubtitle,
 } from "reactstrap";
+import { baseURL } from "../shared/baseURL";
 function RenderCard({ item }) {
    return (
-      <Card>
-         <CardImg src={item.image} alt={item.name} />
+      <Card className="border-0">
+         <CardImg src={baseURL + item.image} alt={item.name} />
          <CardBody>
             <CardTitle>{item.name}</CardTitle>
             {item.designation ? (

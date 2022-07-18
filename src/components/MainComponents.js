@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
 import Menu from "./MenuComponent";
 import DishDetail from "./DishdetailComponent";
-import { DISHES } from "../shared/dishes";
-import { COMMENTS } from "../shared/comments";
-import { PROMOTIONS } from "../shared/promotions";
-import { LEADERS } from "../shared/leaders";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
@@ -13,6 +8,11 @@ import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
+import {
+   postComment,
+   fetchComments,
+   fetchDishes,
+} from "../redux/ActionCreator";
 
 const mapStateToProps = (state) => {
    return {
@@ -23,18 +23,10 @@ const mapStateToProps = (state) => {
    };
 };
 class Main extends Component {
-   constructor(props) {
-      super(props);
-      //    this.state = {
-      //       dishes: DISHES,
-      //       comments: COMMENTS,
-      //       promotions: PROMOTIONS,
-      //       leaders: LEADERS,
+   componentDidMount() {
+      this.props.fetchDishes();
+      this.props.fetchComments();
    }
-   //    // }
-   //    // onDishSelect(dishId) {
-   //    //    this.setState({ selectedDish: dishId });
-   // }
 
    render() {
       const HomePage = () => {
@@ -53,7 +45,6 @@ class Main extends Component {
          );
       };
       const DishWithId = ({ match }) => {
-         // console.log("ABC");
          return (
             <DishDetail
                dish={
@@ -65,21 +56,13 @@ class Main extends Component {
                   (comment) =>
                      comment.dishId === parseInt(match.params.dishId, 10)
                )}
+               postComment={this.props.postComment}
             />
          );
       };
       return (
          <div>
             <Header />
-            {/* <Menu
-               dishes={this.state.dishes}
-               onClick={(dishId) => this.onDishSelect(dishId)}
-            /> */}
-            {/* <DishDetail
-               dish={
-                  this.state.dishes.filter((dish) => this.state.selectedDish)[0]
-               }
-            /> */}
             <div>
                <Switch>
                   <Route path="/home" component={HomePage} />
@@ -103,4 +86,12 @@ class Main extends Component {
       );
    }
 }
-export default withRouter(connect(mapStateToProps)(Main));
+const mapDispatchToProps = (dispatch) => ({
+   postComment: (dishId, rating, author, comment) =>
+      dispatch(postComment(dishId, rating, author, comment)),
+   fetchDishes: () => {
+      dispatch(fetchDishes());
+   },
+   fetchComments: () => dispatch(fetchComments()),
+});
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
