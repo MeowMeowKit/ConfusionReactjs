@@ -42,6 +42,9 @@ const Menu = (props) => {
                   <BreadcrumbItem>
                      <Link to="/home">Home</Link>
                   </BreadcrumbItem>
+                  <BreadcrumbItem>
+                     <Link to="/comments">Comments</Link>
+                  </BreadcrumbItem>
                   <BreadcrumbItem active>Menu</BreadcrumbItem>
                </Breadcrumb>
                <div className="col-12">

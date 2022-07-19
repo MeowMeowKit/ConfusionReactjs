@@ -240,6 +240,14 @@
       "comment": "12312",
       "date": "2022-07-18T16:20:06.523Z",
       "id": 24
+    },
+    {
+      "id": 26,
+      "dishId": 0,
+      "rating": "5",
+      "comment": "muoi diem",
+      "author": "Cuong",
+      "date": "Tue Jul 19 2022 10:31:24 GMT+0700 (Giờ Đông Dương)"
     }
   ],
   "promotions": [

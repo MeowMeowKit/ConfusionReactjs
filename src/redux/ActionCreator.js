@@ -18,6 +18,7 @@ export const addDishes = (dishes) => ({
    type: ActionTypes.ADD_DISHES,
    payload: dishes,
 });
+
 export const postComment = (dishId, rating, author, comment) => (dispatch) => {
    const newComment = {
       dishId: dishId,

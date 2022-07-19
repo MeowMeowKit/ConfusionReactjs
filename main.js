@@ -2,6 +2,54 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = 3003;
+app.get("/dishes", (req, res) => {
+   res.send([
+      {
+         id: 0,
+         name: "Uthappizza",
+         image: "images/pizza.jpg",
+         category: "mains",
+         label: "Hot",
+         price: "4.99",
+         featured: true,
+         description:
+            "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
+      },
+      {
+         id: 1,
+         name: "Zucchipakoda",
+         image: "images/pakoda.jpg",
+         category: "appetizer",
+         label: "",
+         price: "1.99",
+         featured: false,
+         description:
+            "Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce",
+      },
+      {
+         id: 2,
+         name: "Vadonut",
+         image: "images/vada.jpg",
+         category: "appetizer",
+         label: "New",
+         price: "1.99",
+         featured: false,
+         description:
+            "A quintessential ConFusion experience, is it a vada or is it a donut?",
+      },
+      {
+         id: 3,
+         name: "ElaiCheese Cake",
+         image: "images/cheesecake.jpg",
+         category: "dessert",
+         label: "",
+         price: "2.99",
+         featured: false,
+         description:
+            "A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms",
+      },
+   ]);
+});
 app.get("/comments", (req, res) => {
    res.send([
       {

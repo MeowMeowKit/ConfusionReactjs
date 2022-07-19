@@ -13,6 +13,7 @@ import {
    fetchComments,
    fetchDishes,
 } from "../redux/ActionCreator";
+import TestFetchComponet from "../useFetch/TestFetchComponet";
 
 const mapStateToProps = (state) => {
    return {
@@ -78,6 +79,7 @@ class Main extends Component {
                   />
                   <Route path="/menu/:dishId" component={DishWithId} />
                   <Route exact path="/contactus" component={Contact} />
+                  <Route exact path="/comments" component={TestFetchComponet} />
                   <Redirect to="/home" />
                </Switch>
             </div>
